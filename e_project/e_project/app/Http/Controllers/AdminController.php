@@ -59,6 +59,28 @@ public function add_pd()
 }
 
 
+public function deleteFunction(Request $request)
+{
+
+    $products = DB::table('products')->select('*')->get();
+
+    $cates = DB::table('categories')->select('*')
+    ->where('parent_id','=',3)
+    ->get();
+
+
+
+    $id = $request->input('id');
+
+    // Xóa các bản ghi trong bảng `category_products` có liên quan đến `products`
+    DB::table('category_products')->where('products_id', $id)->delete();
+
+    // Xóa bản ghi trong bảng `products`
+    DB::table('products')->where('id', $id)->delete();
+
+    return view('admin.admin', compact('products', 'cates'));
+}
+
 
 public function add_cate()
 {
