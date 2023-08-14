@@ -59,7 +59,7 @@ public function add_pd()
 }
 
 
-public function deleteFunction(Request $request)
+public function deletePd(Request $request)
 {
 
     $products = DB::table('products')->select('*')->get();
@@ -112,5 +112,60 @@ public function add_cate()
 }
 
 
+public function deleteCate(Request $request)
+{
+    $products = DB::table('products')->select('*')->get();
+
+    $cates = DB::table('categories')->select('*')
+        ->where('parent_id', '=', 3)
+        ->get();
+
+    $id = $request->input('id');
+
+    // Xóa các bản ghi trong bảng `category_products` có liên quan đến `products`
+    DB::table('category_products')->where('categories_id', $id)->delete();
+
+
+    // Xóa bản ghi trong bảng `categories`
+    DB::table('categories')->where('id', $id)->delete();
+
+    return view('admin.admin', compact('products', 'cates'));
+}    
+
+public function get_cate(Request $request)
+{
+    $id = $request->input('value');
+    $cates = DB::table('categories')->select('*')
+    ->where('parent_id','=',3)
+    ->where('id','=',$id)
+    ->get();
+
     
+
+    return view('admin.change_cate',compact( 'cates'));
+}
+
+
+public function change_cate()
+{
+    // Kiểm tra nếu có yêu cầu POST để thay đổi danh mục
+    if (request()->isMethod('post')) {
+        $newCate = [
+            'name_list' => request('name'),
+            'type' => 'Brand',
+            'link' =>  '/customers/shop', 
+            'parent_id' => '3',
+            //Thêm các trường thông tin khác của danh mục tại đây
+        ];
+
+        // Thay đổi danh mục trong cơ sở dữ liệu
+        DB::table('categories')->where('id', request('id'))->update($newCate);
+
+  
+    }
+
+    return view('admin.change_cate');
+}
+
+
 }

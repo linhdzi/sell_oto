@@ -22,7 +22,8 @@
 	-->
   </head>
 
-  <body id="reportsPage">
+  <body>
+
     <nav class="navbar navbar-expand-xl">
       <div class="container h-100">
         <a class="navbar-brand" href="index.html">
@@ -56,7 +57,8 @@
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false">
+                aria-expanded="false"
+              >
                 <i class="far fa-file-alt"></i>
                 <span> Reports <i class="fas fa-angle-down"></i> </span>
               </a>
@@ -85,7 +87,8 @@
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false">
+                aria-expanded="false"
+              >
                 <i class="fas fa-cog"></i>
                 <span> Settings <i class="fas fa-angle-down"></i> </span>
               </a>
@@ -106,137 +109,67 @@
         </div>
       </div>
     </nav>
-    <div class="container mt-5">
-      <div class="row tm-content-row">
-        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
-          <div class="tm-bg-primary-dark tm-block tm-block-products">
-            <div class="tm-product-table-container">
-              <table class="table table-hover tm-table-small tm-product-table">
-                <thead>
-                  <tr>
-                    <th scope="col">&nbsp;</th>
-                    <th scope="col">PRODUCT NAME</th>
-                    <th scope="col">UNIT SOLD</th>
-                    <th scope="col">IN STOCK</th>
-                    <th scope="col">EXPIRE DATE</th>
-                    <th scope="col">&nbsp;</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach ($products as $p)
-<tr>
-    <th scope="row"><input type="checkbox" /></th>
-    <td class="tm-product-name">{{ $p->name }}</td>
-    <td>{{ $p->price }}</td>
-  
-    <td>{{ $p->created_at }}</td>
-    <td>
-    <form action="{{ route('admin.deletepd', ['id' => $p->id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                <i class="far fa-trash-alt tm-product-delete-icon"></i>
-            </button>
-        </form>
-    </td>
-    <td>
-    <form action="{{ route('admin.deletepd', ['id' => $p->id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-            <i class="fa-solid fa-wrench"></i>
-            </button>
-        </form>
-    </td>
-</tr>
-@endforeach
-     
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Add Cate</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <form action="{{ route('admin.changect', ['id' =>9]) }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Cate Name
+                    </label>
+                    
+                    <input
+                      id="name"
+                      name="name" value=""
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
 
-                
-       
-          
- 
-         
-                </tbody>
-              </table>
-            </div>
-            <!-- table container -->
-            <a
-              href="add-product.html"
-              class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
-            <button class="btn btn-primary btn-block text-uppercase">
-              Delete selected products
-            </button>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
-          <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
-            <h2 class="tm-block-title">Product Categories</h2>
-            <div class="tm-product-table-container">
-              <table class="table tm-table-small tm-product-table">
-                <tbody>
-                @foreach($cates as $category)
-  <tr>
-    <td class="tm-product-name">{{ $category->name_list }}</td>
-    <td class="text-center">
-      
- 
-      
-   
-    <form action="{{ route('admin.deletect', ['id' => $category->id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                <i class="far fa-trash-alt tm-product-delete-icon"></i>
-            </button>
-        </form>
-    </td>
-    <td class="text-center">
-      
-    <form action="{{route('admin.change_cate')}}" method="POST">
-    @csrf
-    <input type="hidden" name="cate_id" value="{{ $category->id }}">
-    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-        <i class="fa-solid fa-wrench"></i>
-    </button>
-</form>
-    </td>
-  </tr>
-@endforeach
-                
+                    
+                  </div>
+                  
+                  
                  
-            
-                </tbody>
-              </table>
+                  
+              </div>
+              
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Change Cate Now</button>
+              </div>
+            </form>
             </div>
-            <!-- table container -->
-            <button class="btn btn-primary btn-block text-uppercase mb-3">
-              Add new category
-            </button>
           </div>
         </div>
       </div>
     </div>
     <footer class="tm-footer row tm-mt-small">
-      <div class="col-12 font-weight-light">
-        <p class="text-center text-white mb-0 px-4 small">
-          Copyright &copy; <b>2018</b> All rights reserved. 
-          
-          Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+        <div class="col-12 font-weight-light">
+          <p class="text-center text-white mb-0 px-4 small">
+            Copyright &copy; <b>2018</b> All rights reserved. 
+            
+            Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
         </p>
-      </div>
-    </footer>
+        </div>
+    </footer> 
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
+    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
+    <!-- https://jqueryui.com/download/ -->
     <script src="js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
-    <script>
-      $(function() {
-        $(".tm-product-name").on("click", function() {
-          window.location.href = "edit-product.html";
-        });
-      });
-    </script>
+   
   </body>
 </html>
