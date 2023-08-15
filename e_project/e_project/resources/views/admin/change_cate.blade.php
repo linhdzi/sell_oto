@@ -130,7 +130,7 @@
                     
                     <input
                       id="name"
-                      name="name" value=""
+                      name="name" value="{{$cates->name_list}}"
                       type="text"
                       class="form-control validate"
                       required

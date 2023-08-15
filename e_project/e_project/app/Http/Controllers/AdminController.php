@@ -134,11 +134,15 @@ public function deleteCate(Request $request)
 
 public function get_cate(Request $request)
 {
-    $id = $request->input('value');
+    //$id = $request->input('cate_id');
+    $id = $_GET['cate_id'];
+    // dd($id);s
     $cates = DB::table('categories')->select('*')
-    ->where('parent_id','=',3)
+    // ->where('parent_id','=',3)
     ->where('id','=',$id)
-    ->get();
+    ->first();
+
+    // dd($cates);
 
     
 

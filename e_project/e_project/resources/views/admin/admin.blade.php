@@ -193,7 +193,7 @@
     </td>
     <td class="text-center">
       
-    <form action="{{route('admin.change_cate')}}" method="POST">
+    <form action="{{route('admin.change_cate')}}" method="GET">
     @csrf
     <input type="hidden" name="cate_id" value="{{ $category->id }}">
     <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
