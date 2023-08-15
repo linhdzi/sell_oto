@@ -280,9 +280,33 @@
   <tr>
     <td class="tm-product-name">{{ $category->name_list }}</td>
     <td class="text-center">
+<<<<<<< Updated upstream
       <a href="#" class="tm-product-delete-link">
         <i class="far fa-trash-alt tm-product-delete-icon"></i>
       </a>
+=======
+      
+ 
+      
+   
+    <form action="{{ route('admin.deletect', ['id' => $category->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+            </button>
+        </form>
+    </td>
+    <td class="text-center">
+      
+    <form action="{{route('admin.changect',['id' =>$category->id ])}}" method="POST">
+    @csrf
+    <input type="hidden" name="cate_id" value="{{ $category->id }}">
+    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+        <i class="fa-solid fa-wrench"></i>
+    </button>
+</form>
+>>>>>>> Stashed changes
     </td>
   </tr>
 @endforeach

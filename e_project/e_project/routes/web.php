@@ -20,4 +20,13 @@ Route::get('/customers/shop/{id}', [CustomerController::class, 'shop']);
 Route::get('/customers/shop',[CustomerController::class, 'getAll']);
 Route::get('/admin/admin', [AdminController::class, 'admin']);
 Route::match(['get', 'post'], '/admin/admin/add_pd', [AdminController::class, 'add_pd'])->name('admin.add_pd');
+<<<<<<< Updated upstream
 Route::match(['get', 'post'], '/admin/admin/add_cate', [AdminController::class, 'add_cate'])->name('admin.add_cate');
+=======
+Route::match(['get', 'post'], '/admin/admin/add_cate', [AdminController::class, 'add_cate'])->name('admin.add_cate');
+
+Route::match(['get', 'post'], '/admin/admin/change_cate/{id}', [AdminController::class, 'get_cate'])->name('admin.change_cate');
+
+
+ Route::match(['PUT', 'POST'], '/admin/admin/changect/{id}', [AdminController::class, 'change_cate'])->name('admin.changect');
+>>>>>>> Stashed changes
