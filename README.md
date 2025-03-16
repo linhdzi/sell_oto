@@ -66,3 +66,5 @@ Trang web bán ô tô cung cấp các dòng xe đa dạng từ các thương hi�
 
 ## Giấy Phép
 Dự án được phát triển cho mục đích học tập và thương mại. Vui lòng liên hệ tác giả để biết thêm chi tiết.
+
+![alt text](<Ảnh chụp màn hình (208).png>) ![alt text](<Ảnh chụp màn hình (209).png>) ![alt text](<Ảnh chụp màn hình (210).png>) ![alt text](<Ảnh chụp màn hình (211).png>) ![alt text](<Ảnh chụp màn hình (212).png>) ![alt text](<Ảnh chụp màn hình (198).png>) ![alt text](<Ảnh chụp màn hình (199).png>) ![alt text](<Ảnh chụp màn hình (200).png>) ![alt text](<Ảnh chụp màn hình (201).png>) ![alt text](<Ảnh chụp màn hình (202).png>) ![alt text](<Ảnh chụp màn hình (203).png>) ![alt text](<Ảnh chụp màn hình (204).png>) ![alt text](<Ảnh chụp màn hình (205).png>) ![alt text](<Ảnh chụp màn hình (206).png>) ![alt text](<Ảnh chụp màn hình (207).png>)
