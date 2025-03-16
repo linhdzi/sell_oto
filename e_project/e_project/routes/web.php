@@ -21,3 +21,4 @@ Route::get('/customers/shop',[CustomerController::class, 'getAll']);
 Route::get('/admin/admin', [AdminController::class, 'admin']);
 Route::match(['get', 'post'], '/admin/admin/add_pd', [AdminController::class, 'add_pd'])->name('admin.add_pd');
 Route::match(['get', 'post'], '/admin/admin/add_cate', [AdminController::class, 'add_cate'])->name('admin.add_cate');
+//route route
